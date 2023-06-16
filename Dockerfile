@@ -39,15 +39,15 @@ COPY ./db2/db2jcc4.jar /resources
 
 COPY ./awssdk/*.jar /resources/aws
 
+
 # Curl the aws java sdk zip file and unzip the main jar file only
 # (because it's too big to store with the repo on github.ibm.com)
 # RUN curl https://sdk-for-java.amazonwebservices.com/aws-java-sdk-${AWS_JAVA_SDK_VERSION}.zip -O /tmp/aws-java-sdk.zip \ 
 #     && mkdir /resources/aws
-# RUN curl 'https://sdk-for-java.amazonwebservices.com/aws-java-sdk-1.12.487.zip' -O /tmp/aws-java-sdk.zip \
-#     && mkdir /resources/aws
-#
-# RUN unzip -j /tmp/aws-java-sdk.zip aws-java-sdk-1.12.487/lib/aws-java-sdk-1.12.487.jar -d /resources/aws \
-#     && rm /tmp/aws-java-sdk.zip
+RUN curl https://sdk-for-java.amazonwebservices.com/aws-java-sdk-1.12.487.zip -o /tmp/aws-java-sdk.zip
+
+RUN unzip -j /tmp/aws-java-sdk.zip aws-java-sdk-1.12.487/lib/aws-java-sdk-1.12.487.jar -d /resources/aws \
+    && rm /tmp/aws-java-sdk.zip
 
 # Add any other required resources to the same location
 
