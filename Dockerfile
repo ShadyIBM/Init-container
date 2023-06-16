@@ -15,7 +15,6 @@ ARG GROUP_ID=1010
 
 # Create directories
 
-RUN mkdir -p /resources
 RUN mkdir -p /ibm/resources
 
 # Patch curl, libcurl & libarchive
