@@ -1,1 +1,1 @@
-# sfg-b2bi-initContainer
+# b2bi-initContainer
